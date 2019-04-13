@@ -1,0 +1,21 @@
+[
+  [
+     "name" : "BusinessRuleTask",
+     "parameters" : [
+       "Service" : new StringDataType()
+     ],
+     "displayName" : "Business Rule Task",
+     "icon" : "defaultbusinessrulesicon.png",
+     "category" : "Decision tasks"
+   ],
+   [
+    "name" : "DecisionTask", 
+    "parameters" : [ 
+        "Namespace" : new StringDataType(),
+        "Model" : new StringDataType(),
+        "Decision" : new StringDataType() 
+    ],
+    "displayName" : "Decision Task", 
+    "icon" : "defaultdecisionicon.png" 
+  ]
+]

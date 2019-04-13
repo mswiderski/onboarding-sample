@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_Lj82IFr2EemSce_o1Tqd5Q" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:itemDefinition id="_employeeItem" structureRef="com.myspace.payroll.Employee"/>
+  <bpmn2:itemDefinition id="_taxRateItem" structureRef="java.lang.Double"/>
+  <bpmn2:process id="payroll.taxRate" drools:packageName="com.myspace.payroll" drools:version="1.0" drools:adHoc="false" name="taxRate" isExecutable="true">
+    <bpmn2:property id="employee" itemSubjectRef="_employeeItem" name="employee"/>
+    <bpmn2:property id="taxRate" itemSubjectRef="_taxRateItem" name="taxRate"/>
+    <bpmn2:sequenceFlow id="_96D61A24-EC9B-4119-9D24-A37510A4D22D" sourceRef="_6EC8C569-4C43-4F54-9C7B-32A8952E2050" targetRef="_88E222C8-FDEB-4BD5-9F46-B4AD895AD8CD">
+      <bpmn2:extensionElements>
+        <drools:metaData name="isAutoConnection.source">
+          <drools:metaValue><![CDATA[true]]></drools:metaValue>
+        </drools:metaData>
+        <drools:metaData name="isAutoConnection.target">
+          <drools:metaValue><![CDATA[true]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_4486D480-6774-4A1E-B9D7-C15DF4FA6FB6" sourceRef="_88E222C8-FDEB-4BD5-9F46-B4AD895AD8CD" targetRef="_42FCB729-8F03-4F98-8450-B54D3FD1E980">
+      <bpmn2:extensionElements>
+        <drools:metaData name="isAutoConnection.source">
+          <drools:metaValue><![CDATA[true]]></drools:metaValue>
+        </drools:metaData>
+        <drools:metaData name="isAutoConnection.target">
+          <drools:metaValue><![CDATA[true]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:scriptTask id="_88E222C8-FDEB-4BD5-9F46-B4AD895AD8CD" name="Calculate tax rate" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Calculate tax rate]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_96D61A24-EC9B-4119-9D24-A37510A4D22D</bpmn2:incoming>
+      <bpmn2:outgoing>_4486D480-6774-4A1E-B9D7-C15DF4FA6FB6</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[if (employee.getAddress().getCountry().equals("US")) {
+kcontext.setVariable("taxRate", 35.0);
+} else if (employee.getAddress().getCountry().equals("UK")) {
+kcontext.setVariable("taxRate", 30.0);
+} else {
+kcontext.setVariable("taxRate", 32.0);
+}]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:startEvent id="_6EC8C569-4C43-4F54-9C7B-32A8952E2050">
+      <bpmn2:outgoing>_96D61A24-EC9B-4119-9D24-A37510A4D22D</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:endEvent id="_42FCB729-8F03-4F98-8450-B54D3FD1E980">
+      <bpmn2:incoming>_4486D480-6774-4A1E-B9D7-C15DF4FA6FB6</bpmn2:incoming>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_Lj82IVr2EemSce_o1Tqd5Q">
+    <bpmndi:BPMNPlane id="_Lj82Ilr2EemSce_o1Tqd5Q" bpmnElement="payroll.taxRate">
+      <bpmndi:BPMNShape id="shape__42FCB729-8F03-4F98-8450-B54D3FD1E980" bpmnElement="_42FCB729-8F03-4F98-8450-B54D3FD1E980">
+        <dc:Bounds height="56.0" width="56.0" x="470.0" y="100.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__6EC8C569-4C43-4F54-9C7B-32A8952E2050" bpmnElement="_6EC8C569-4C43-4F54-9C7B-32A8952E2050">
+        <dc:Bounds height="56.0" width="56.0" x="100.0" y="100.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__88E222C8-FDEB-4BD5-9F46-B4AD895AD8CD" bpmnElement="_88E222C8-FDEB-4BD5-9F46-B4AD895AD8CD">
+        <dc:Bounds height="102.0" width="154.0" x="236.0" y="77.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge_shape__88E222C8-FDEB-4BD5-9F46-B4AD895AD8CD_to_shape__42FCB729-8F03-4F98-8450-B54D3FD1E980" bpmnElement="_4486D480-6774-4A1E-B9D7-C15DF4FA6FB6">
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="470.0" y="128.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__6EC8C569-4C43-4F54-9C7B-32A8952E2050_to_shape__88E222C8-FDEB-4BD5-9F46-B4AD895AD8CD" bpmnElement="_96D61A24-EC9B-4119-9D24-A37510A4D22D">
+        <di:waypoint xsi:type="dc:Point" x="156.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="236.0" y="128.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship id="_Lj82I1r2EemSce_o1Tqd5Q" type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters"/>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_6EC8C569-4C43-4F54-9C7B-32A8952E2050" id="_Lj82JFr2EemSce_o1Tqd5Q">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_88E222C8-FDEB-4BD5-9F46-B4AD895AD8CD" id="_Lj82JVr2EemSce_o1Tqd5Q">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_Lj82IFr2EemSce_o1Tqd5Q</bpmn2:source>
+    <bpmn2:target>_Lj82IFr2EemSce_o1Tqd5Q</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>
