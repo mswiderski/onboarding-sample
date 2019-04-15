@@ -67,4 +67,16 @@ and lastly create the route for it
 oc expose svc/onboarding-service
 ```
 
+
+Since onboarding service uses discovery of services that it's going to interact with, you need to give view access to 
+default service account
+
+``` sh
+# adding role 'view' to the system account (-z) named 'default'
+# see https://docs.openshift.com/container-platform/latest/architecture/additional_concepts/authorization.html#roles
+oc policy add-role-to-user view -z default
+```
+
+You can now use the onboarding service on OpenShift!
+
 You can inspect [swagger docs](http://localhost:8080/docs/swagger.json) to learn more about the service.

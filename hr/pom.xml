@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.myspace</groupId>
   <artifactId>hr</artifactId>
@@ -42,6 +44,26 @@
       <version>${submarine.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-core-static</artifactId>
+      <version>${submarine.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-compiler</artifactId>
+      <version>${submarine.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-canonical-model</artifactId>
+      <version>${submarine.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-model-compiler</artifactId>
+      <version>${submarine.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-flow</artifactId>
       <version>${submarine.version}</version>
@@ -60,7 +82,8 @@
         <version>${quarkus.version}</version>
         <configuration>
           <debug>false</debug>
-          <jvmArgs>-Dquarkus.http.port=8081 -Dquarkus.http.host=localhost</jvmArgs>
+          <jvmArgs>-Dquarkus.http.port=8081
+            -Dquarkus.http.host=localhost</jvmArgs>
         </configuration>
         <executions>
           <execution>
@@ -79,7 +102,7 @@
           <execution>
             <goals>
               <goal>generateModel</goal>
-              <goal>generateDMNModel</goal>              
+              <goal>generateDMNModel</goal>
               <goal>generateProcessModel</goal>
             </goals>
           </execution>
