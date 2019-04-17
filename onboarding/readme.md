@@ -80,3 +80,21 @@ oc policy add-role-to-user view -z default
 You can now use the onboarding service on OpenShift!
 
 You can inspect [swagger docs](http://localhost:8080/docs/swagger.json) to learn more about the service.
+
+
+## Knative
+
+To be able to deploy to knative there is a template script that can be used to directly deploy 
+image from docker hub, just execute following command
+
+```sh
+oc apply -f knative/knative-onboarding-service.yaml
+```
+
+In addition following permissions should be added to the default service account so the
+service discovery can properly happen
+
+```sh
+oc policy add-role-to-group view system:serviceaccounts:default -n istio-system
+ oc policy add-role-to-group knative-serving-core system:serviceaccounts:default -n default
+```

@@ -86,3 +86,12 @@ oc expose svc/hr-service
 ```
 
 You can inspect [swagger docs](http://localhost:8081/docs/swagger.json) to learn more about the service.
+
+## Knative
+
+To be able to deploy to knative there is a template script that can be used to directly deploy 
+image from docker hub, just execute following command
+
+```sh
+oc apply -f knative/knative-hr-service.yaml
+```
