@@ -6,6 +6,7 @@ import org.kie.api.runtime.process.WorkItem;
 import org.kie.api.runtime.process.WorkItemManager;
 import org.kie.submarine.cloud.workitems.DiscoveredServiceWorkItemHandler;
 import org.kie.submarine.cloud.workitems.HttpMethods;
+import org.kie.submarine.cloud.workitems.ServiceInfo;
 
 public class DecisionTaskWorkItemHandler extends DiscoveredServiceWorkItemHandler {
 
@@ -13,12 +14,12 @@ public class DecisionTaskWorkItemHandler extends DiscoveredServiceWorkItemHandle
 
     public DecisionTaskWorkItemHandler() {
         if ("true".equalsIgnoreCase(System.getProperty("local"))) {
-          this.serviceEndpoints.put("id", "http://localhost:8081/id");
-          this.serviceEndpoints.put("department", "http://localhost:8081/department");
-          this.serviceEndpoints.put("employeeValidation", "http://localhost:8081/employeeValidation");
-          this.serviceEndpoints.put("vacationDays", "http://localhost:8082/vacationDays");
-          this.serviceEndpoints.put("taxRate", "http://localhost:8082/taxRate");
-          this.serviceEndpoints.put("paymentDate", "http://localhost:8082/paymentDate");
+          this.serviceEndpoints.put("id", new ServiceInfo("http://localhost:8081/id", null));
+          this.serviceEndpoints.put("department", new ServiceInfo("http://localhost:8081/department", null));
+          this.serviceEndpoints.put("employeeValidation", new ServiceInfo("http://localhost:8081/employeeValidation", null));
+          this.serviceEndpoints.put("vacationDays", new ServiceInfo("http://localhost:8082/vacationDays", null));
+          this.serviceEndpoints.put("taxRate", new ServiceInfo("http://localhost:8082/taxRate", null));
+          this.serviceEndpoints.put("paymentDate", new ServiceInfo("http://localhost:8082/paymentDate", null));
         }
     }
 
