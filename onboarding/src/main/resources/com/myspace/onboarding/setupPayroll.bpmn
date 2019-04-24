@@ -90,7 +90,7 @@
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_7B55F281-D560-4130-88C9-177C960E8682" sourceRef="_242EB204-4239-4DAA-8E4F-A160039547A2" targetRef="_9E55D729-F4A6-4829-8BB9-79742D9008C5"/>
-    <bpmn2:task id="_83EB46B5-7186-4575-8AA0-1A8FCCE1D163" drools:taskName="DecisionTask" name="Calculate payment date">
+    <bpmn2:task id="_83EB46B5-7186-4575-8AA0-1A8FCCE1D163" drools:taskName="CalculatePaymentDate" name="Calculate payment date">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Calculate payment date]]></drools:metaValue>
@@ -144,7 +144,7 @@
       <bpmn2:dataInputAssociation id="_2vLd8lt9Eemh5ML2ubKveA">
         <bpmn2:targetRef>_83EB46B5-7186-4575-8AA0-1A8FCCE1D163_TaskNameInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_2vLd81t9Eemh5ML2ubKveA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_2vLd9Ft9Eemh5ML2ubKveA"><![CDATA[DecisionTask]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_2vLd9Ft9Eemh5ML2ubKveA"><![CDATA[CalculatePaymentDate]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_2vLd9Vt9Eemh5ML2ubKveA">_83EB46B5-7186-4575-8AA0-1A8FCCE1D163_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -168,7 +168,7 @@
     <bpmn2:endEvent id="_B1194242-2158-4CFC-8015-D5E79EF214AA">
       <bpmn2:incoming>_531A9F71-9913-456C-98AA-AB0BA9C7DC98</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:task id="_AE1BFAA6-7AFD-455F-95B4-FA619A2095CF" drools:taskName="DecisionTask" name="Calculate vacation days">
+    <bpmn2:task id="_AE1BFAA6-7AFD-455F-95B4-FA619A2095CF" drools:taskName="CalculateVacationDays" name="Calculate vacation days">
       <bpmn2:documentation id="_2vLd91t9Eemh5ML2ubKveA"><![CDATA[Uses VacationDays decision service to calculate eligible vacation days for the employee]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
@@ -223,7 +223,7 @@
       <bpmn2:dataInputAssociation id="_2vME_Vt9Eemh5ML2ubKveA">
         <bpmn2:targetRef>_AE1BFAA6-7AFD-455F-95B4-FA619A2095CF_TaskNameInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_2vME_lt9Eemh5ML2ubKveA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_2vME_1t9Eemh5ML2ubKveA"><![CDATA[DecisionTask]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_2vME_1t9Eemh5ML2ubKveA"><![CDATA[CalculateVacationDays]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_2vMFAFt9Eemh5ML2ubKveA">_AE1BFAA6-7AFD-455F-95B4-FA619A2095CF_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -235,7 +235,7 @@
     <bpmn2:startEvent id="_7E4BB129-666E-4805-ADB1-A43F6EEEE0D8">
       <bpmn2:outgoing>_299404B8-2860-4F4D-B970-48F6B17DA3E9</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:task id="_D2DE6249-804E-432D-9600-6B0F618B457C" drools:taskName="DecisionTask" name="Calculate tax rate">
+    <bpmn2:task id="_D2DE6249-804E-432D-9600-6B0F618B457C" drools:taskName="CalculateTaxRate" name="Calculate tax rate">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Calculate tax rate]]></drools:metaValue>
@@ -289,7 +289,7 @@
       <bpmn2:dataInputAssociation id="_2vMFElt9Eemh5ML2ubKveA">
         <bpmn2:targetRef>_D2DE6249-804E-432D-9600-6B0F618B457C_TaskNameInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_2vMFE1t9Eemh5ML2ubKveA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_2vMFFFt9Eemh5ML2ubKveA"><![CDATA[DecisionTask]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_2vMFFFt9Eemh5ML2ubKveA"><![CDATA[CalculateTaxRate]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_2vMFFVt9Eemh5ML2ubKveA">_D2DE6249-804E-432D-9600-6B0F618B457C_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>

@@ -39,7 +39,7 @@
     <bpmn2:startEvent id="_F5EC087B-0E01-4F48-8135-B8CB7BE8D0CC">
       <bpmn2:outgoing>_ACDDDC63-2696-434C-BE17-FE9B3A39112A</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:task id="_C2C840B8-C669-4134-91DD-81B664982F57" drools:taskName="DecisionTask" name="Assign department and manager">
+    <bpmn2:task id="_C2C840B8-C669-4134-91DD-81B664982F57" drools:taskName="AssignDepartmentAndManager" name="Assign department and manager">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Assign department and manager]]></drools:metaValue>
@@ -95,7 +95,7 @@
       <bpmn2:dataInputAssociation id="_7gwnkVrCEem3t4ZSfERqCw">
         <bpmn2:targetRef>_C2C840B8-C669-4134-91DD-81B664982F57_TaskNameInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_7gwnklrCEem3t4ZSfERqCw">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_7gwnk1rCEem3t4ZSfERqCw"><![CDATA[DecisionTask]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_7gwnk1rCEem3t4ZSfERqCw"><![CDATA[AssignDepartmentAndManager]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_7gwnlFrCEem3t4ZSfERqCw">_C2C840B8-C669-4134-91DD-81B664982F57_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>

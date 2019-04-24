@@ -66,6 +66,13 @@
       <artifactId>jbpm-flow</artifactId>
       <version>${submarine.version}</version>
     </dependency>
+    
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>monitoring-prometheus-addon</artifactId>
+      <version>${submarine.version}</version>
+    </dependency>
+    
     <dependency>
       <groupId>io.swagger</groupId>
       <artifactId>swagger-annotations</artifactId>
@@ -101,15 +108,6 @@
         <artifactId>kie-maven-plugin</artifactId>
         <version>${submarine.version}</version>
         <extensions>true</extensions>
-        <executions>
-          <execution>
-            <goals>
-              <goal>generateModel</goal>
-              <goal>generateDMNModel</goal>              
-              <goal>generateProcessModel</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>com.github.kongchen</groupId>

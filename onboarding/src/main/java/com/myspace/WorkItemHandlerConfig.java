@@ -1,8 +1,9 @@
 package com.myspace;
 
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.kie.api.runtime.process.WorkItemHandler;
@@ -12,11 +13,21 @@ import com.myspace.onboarding.DecisionTaskWorkItemHandler;
 public class WorkItemHandlerConfig implements org.kie.submarine.process.WorkItemHandlerConfig {
 
     private final Map<String, WorkItemHandler> workItemHandlers = new HashMap<>();
+    private final List<String> supportedHandlers = Arrays.asList("AssignDepartmentAndManager",
+                                                                "CalculatePaymentDate",
+                                                                "CalculateVacationDays",
+                                                                "CalculateTaxRate",
+                                                                "ValidateEmployee",
+                                                                "AssignIdAndEmail",
+                                                                "DecisionTask");
     
     @Override
     public WorkItemHandler forName(String name) {
-        if ("DecisionTask".equalsIgnoreCase(name)) {
-            workItemHandlers.putIfAbsent(name, new DecisionTaskWorkItemHandler());
+                
+        workItemHandlers.putIfAbsent("DecisionTask", new DecisionTaskWorkItemHandler());
+        if (supportedHandlers.contains(name)) {
+            // use decision task handler (single instance) for all supported handlers that are based on decision calls
+            return workItemHandlers.get("DecisionTask");
         }
         
         return workItemHandlers.get(name);
@@ -24,6 +35,6 @@ public class WorkItemHandlerConfig implements org.kie.submarine.process.WorkItem
 
     @Override
     public Collection<String> names() {
-        return Collections.singletonList("DecisionTask");
+        return supportedHandlers;
     }
 }

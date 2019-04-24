@@ -236,7 +236,7 @@
     <bpmn2:endEvent id="_F6920526-06EC-43CD-A743-17778DEB7363">
       <bpmn2:incoming>_3CFB2AC2-17B6-4322-ACD8-C9A149975143</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:task id="_DD24B4AE-8804-4D6E-B90B-98689CF6EF37" drools:taskName="DecisionTask" name="Validate employee">
+    <bpmn2:task id="_DD24B4AE-8804-4D6E-B90B-98689CF6EF37" drools:taskName="ValidateEmployee" name="Validate employee">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Validate employee]]></drools:metaValue>
@@ -292,7 +292,7 @@
       <bpmn2:dataInputAssociation id="_YweXRlr1EemSce_o1Tqd5Q">
         <bpmn2:targetRef>_DD24B4AE-8804-4D6E-B90B-98689CF6EF37_TaskNameInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_YweXR1r1EemSce_o1Tqd5Q">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_YweXSFr1EemSce_o1Tqd5Q"><![CDATA[DecisionTask]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_YweXSFr1EemSce_o1Tqd5Q"><![CDATA[ValidateEmployee]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_YweXSVr1EemSce_o1Tqd5Q">_DD24B4AE-8804-4D6E-B90B-98689CF6EF37_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -341,7 +341,7 @@
       <bpmn2:incoming>_5F4F4E2D-B4EC-4542-91DF-69FC30C5E346</bpmn2:incoming>
       <bpmn2:errorEventDefinition id="_YweXUVr1EemSce_o1Tqd5Q" drools:erefname="Rejected" errorRef="Rejected"/>
     </bpmn2:endEvent>
-    <bpmn2:task id="_16FFBBF8-8373-46D4-A278-F305AFA7F4B1" drools:taskName="DecisionTask" name="Assign id and email">
+    <bpmn2:task id="_16FFBBF8-8373-46D4-A278-F305AFA7F4B1" drools:taskName="AssignIdAndEmail" name="Assign id and email">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Assign id and email]]></drools:metaValue>
@@ -393,7 +393,7 @@
       <bpmn2:dataInputAssociation id="_YweXYVr1EemSce_o1Tqd5Q">
         <bpmn2:targetRef>_16FFBBF8-8373-46D4-A278-F305AFA7F4B1_TaskNameInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_YweXYlr1EemSce_o1Tqd5Q">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_YweXY1r1EemSce_o1Tqd5Q"><![CDATA[DecisionTask]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_YweXY1r1EemSce_o1Tqd5Q"><![CDATA[AssignIdAndEmail]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_YweXZFr1EemSce_o1Tqd5Q">_16FFBBF8-8373-46D4-A278-F305AFA7F4B1_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
