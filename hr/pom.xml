@@ -114,7 +114,6 @@
               <springmvc>false</springmvc>
               <locations>
                 <location>com.myspace</location>
-                <location>org.kie.addons</location>
               </locations>
               <schemes>http,https</schemes>
               <info>

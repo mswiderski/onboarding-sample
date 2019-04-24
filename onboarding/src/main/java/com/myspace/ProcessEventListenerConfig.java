@@ -8,6 +8,6 @@ import ork.kie.addons.monitoring.process.PrometheusProcessEventListener;
 public class ProcessEventListenerConfig extends DefaultProcessEventListenerConfig {
    
     public ProcessEventListenerConfig() {
-        super(new PrometheusProcessEventListener("onboarding-hr"));
+        super(new PrometheusProcessEventListener("onboarding"));
     }
 }
