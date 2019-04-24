@@ -89,8 +89,7 @@
         <version>${quarkus.version}</version>
         <configuration>
           <debug>false</debug>
-          <jvmArgs>-Dquarkus.http.port=8082
-            -Dquarkus.http.host=localhost</jvmArgs>
+          <jvmArgs>-Dquarkus.http.port=8082 -Dquarkus.http.host=localhost</jvmArgs>
         </configuration>
         <executions>
           <execution>
