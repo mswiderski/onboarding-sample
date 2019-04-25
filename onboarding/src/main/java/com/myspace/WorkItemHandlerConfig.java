@@ -1,5 +1,6 @@
 package com.myspace;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -7,10 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.kie.api.runtime.process.WorkItemHandler;
+import org.kie.submarine.process.impl.DefaultWorkItemHandlerConfig;
 
 import com.myspace.onboarding.DecisionTaskWorkItemHandler;
 
-public class WorkItemHandlerConfig implements org.kie.submarine.process.WorkItemHandlerConfig {
+public class WorkItemHandlerConfig extends DefaultWorkItemHandlerConfig {
 
     private final Map<String, WorkItemHandler> workItemHandlers = new HashMap<>();
     private final List<String> supportedHandlers = Arrays.asList("AssignDepartmentAndManager",
@@ -30,11 +32,13 @@ public class WorkItemHandlerConfig implements org.kie.submarine.process.WorkItem
             return workItemHandlers.get("DecisionTask");
         }
         
-        return workItemHandlers.get(name);
+        return super.forName(name);
     }
 
     @Override
     public Collection<String> names() {
-        return supportedHandlers;
+        List<String> names = new ArrayList<>(supportedHandlers);
+        names.addAll(super.names());
+        return names;
     }
 }

@@ -14,12 +14,12 @@ public class DecisionTaskWorkItemHandler extends DiscoveredServiceWorkItemHandle
 
     public DecisionTaskWorkItemHandler() {
         if ("true".equalsIgnoreCase(System.getProperty("local"))) {
-          this.serviceEndpoints.put("id", new ServiceInfo("http://localhost:8081/id", null));
-          this.serviceEndpoints.put("department", new ServiceInfo("http://localhost:8081/department", null));
-          this.serviceEndpoints.put("employeeValidation", new ServiceInfo("http://localhost:8081/employeeValidation", null));
-          this.serviceEndpoints.put("vacationDays", new ServiceInfo("http://localhost:8082/vacationDays", null));
-          this.serviceEndpoints.put("taxRate", new ServiceInfo("http://localhost:8082/taxRate", null));
-          this.serviceEndpoints.put("paymentDate", new ServiceInfo("http://localhost:8082/paymentDate", null));
+          this.serviceEndpoints.put("id", new ServiceInfo("http://192.168.100.15:8081/id", null));
+          this.serviceEndpoints.put("department", new ServiceInfo("http://192.168.100.15:8081/department", null));
+          this.serviceEndpoints.put("employeeValidation", new ServiceInfo("http://192.168.100.15:8081/employeeValidation", null));
+          this.serviceEndpoints.put("vacationDays", new ServiceInfo("http://192.168.100.15:8082/vacationDays", null));
+          this.serviceEndpoints.put("taxRate", new ServiceInfo("http://192.168.100.15:8082/taxRate", null));
+          this.serviceEndpoints.put("paymentDate", new ServiceInfo("http://192.168.100.15:8082/paymentDate", null));
         }
     }
 
