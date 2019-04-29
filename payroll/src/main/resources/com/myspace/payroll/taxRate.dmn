@@ -58,7 +58,7 @@
             </semantic:input>
             <semantic:output id="_ebc17c96-82c4-4373-ac30-4dbae4b4c886">
                 <semantic:defaultOutputEntry>
-                    <semantic:text>32</semantic:text>
+                    <semantic:text>32.0</semantic:text>
                 </semantic:defaultOutputEntry>
             </semantic:output>
             <semantic:annotation name="Description"/>
@@ -67,7 +67,7 @@
                     <semantic:text>"US"</semantic:text>
                 </semantic:inputEntry>
                 <semantic:outputEntry id="_f42f5ec5-0f78-4a82-b769-9027ef1545f8">
-                    <semantic:text>35</semantic:text>
+                    <semantic:text>35.0</semantic:text>
                 </semantic:outputEntry>
                 <semantic:annotationEntry>
                     <semantic:text></semantic:text>
@@ -78,7 +78,7 @@
                     <semantic:text>"UK"</semantic:text>
                 </semantic:inputEntry>
                 <semantic:outputEntry id="_311804d4-3ecb-4a9d-9674-5e96a600058f">
-                    <semantic:text>30</semantic:text>
+                    <semantic:text>30.0</semantic:text>
                 </semantic:outputEntry>
                 <semantic:annotationEntry>
                     <semantic:text></semantic:text>
