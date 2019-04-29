@@ -24,31 +24,31 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
-public class TaxRateTest {
+public class PaymentDateTest {
 
     @Test
-    public void testEvaluateTaxRateUS() {
-        evaluateForCountry("US", 35);
+    public void testEvaluatePaymentDateUS() {
+        evaluateForCountry("US", "2019-04-15T23:59:00Z");
     }
 
     @Test
-    public void testEvaluateTaxRateUK() {
-        evaluateForCountry("UK", 30);
+    public void testEvaluatePaymentDateUK() {
+        evaluateForCountry("UK", "2019-04-10T23:59:00Z");
     }
 
     @Test
-    public void testEvaluateTaxRateDefault() {
-        evaluateForCountry("aoc", 32);
+    public void testEvaluatePaymentDateDefault() {
+        evaluateForCountry("aoc", "2019-04-01T23:59:00Z");
     }
 
-    private void evaluateForCountry(String country, Number result) {
+    private void evaluateForCountry(String country, String result) {
         given()
                .body("{\"employee\" : {\"firstName\" : \"Mark\", \"lastName\" : \"Test\", \"personalId\" : \"xxx-yy-zzz\", \"birthDate\" : \"1995-12-10T14:50:12.123+02:00\", \"address\" : {\"country\" : \""+country+"\", \"city\" : \"Boston\", \"street\" : \"any street 3\", \"zipCode\" : \"10001\"}}}")
                .contentType(ContentType.JSON)
           .when()
-               .post("/taxRate")
+               .post("/paymentDate")
           .then()
              .statusCode(200)
-               .body("taxRate", is(result));
+               .body("paymentDate", is(result));
     }
 }
