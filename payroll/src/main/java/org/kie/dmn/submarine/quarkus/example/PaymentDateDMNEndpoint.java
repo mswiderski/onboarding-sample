@@ -28,8 +28,8 @@ import org.kie.dmn.api.core.DMNRuntime;
 import org.kie.dmn.submarine.rest.quarkus.DMNResult;
 import org.kie.dmn.submarine.rest.quarkus.DMNSubmarineQuarkus;
 
-@Path("/paymentDate")
-public class TaxRateDMNEndpoint {
+@Path("/taxRate")
+public class PaymentDateDMNEndpoint {
 
     static final DMNRuntime dmnRuntime = DMNSubmarineQuarkus.createGenericDMNRuntime();
 
@@ -37,7 +37,7 @@ public class TaxRateDMNEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Map<String, Object> dmn(Map<String, Object> dmnContext) {
-        DMNResult evaluate = DMNSubmarineQuarkus.evaluate(dmnRuntime, "paymentDate", dmnContext);
+        DMNResult evaluate = DMNSubmarineQuarkus.evaluate(dmnRuntime, "taxRate", dmnContext);
         return evaluate.getDmnContext();
     }
 
