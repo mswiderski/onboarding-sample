@@ -18,31 +18,6 @@ package com.myspace.hr;
 
 public class DepartmentModel {
 
-    private Long id;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-//    public Map<String, Object> toMap() {
-//        Map<String, Object> params = new HashMap();
-//        params.put("employee", this.employee);
-//        params.put("manager", this.manager);
-//        params.put("department", this.department);
-//        return params;
-//    }
-//
-//    public void fromMap(Long id, Map<String, Object> params) {
-//        this.id = id;
-//        this.employee = (com.myspace.hr.Employee) params.get("employee");
-//        this.manager = (java.lang.String) params.get("manager");
-//        this.department = (java.lang.String) params.get("department");
-//    }
-
     private com.myspace.hr.Employee employee;
 
     public com.myspace.hr.Employee getEmployee() {

@@ -16,22 +16,25 @@
 
 package com.myspace;
 
-import com.myspace.hr.DepartmentModel;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
 import org.drools.modelcompiler.KieRuntimeBuilder;
 import org.kie.api.runtime.KieSession;
 
-@Path("/department")
-@Api(description = "Department service")
-public class DepartmentEndpoint {
+import com.myspace.hr.IdModel;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
+@Path("/id")
+@Api(description = "Id and Email service")
+public class IdEndpoint {
 
     @Inject
     KieRuntimeBuilder runtimeBuilder;
@@ -39,8 +42,8 @@ public class DepartmentEndpoint {
     @POST()
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @ApiOperation("Assign depeartment and manager")
-    public DepartmentModel assignDepartment(@ApiParam(value = "department data that should be created") DepartmentModel resource) {
+    @ApiOperation("Assign employee id and email")
+    public IdModel assignId(@ApiParam(value = "data model representing employee") IdModel resource) {
         KieSession ksession = runtimeBuilder.newKieSession("defaultStatelessKieSession");
 
         ksession.insert( resource );

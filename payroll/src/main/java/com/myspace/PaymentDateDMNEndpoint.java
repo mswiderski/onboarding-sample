@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.kie.dmn.submarine.quarkus.example;
+package com.myspace;
 
-import java.util.Map;
+import java.util.Collections;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -28,7 +28,14 @@ import org.kie.dmn.api.core.DMNRuntime;
 import org.kie.dmn.submarine.rest.quarkus.DMNResult;
 import org.kie.dmn.submarine.rest.quarkus.DMNSubmarineQuarkus;
 
+import com.myspace.payroll.Payroll;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 @Path("/paymentDate")
+@Api(description = "Payments service")
 public class PaymentDateDMNEndpoint {
 
     static final DMNRuntime dmnRuntime = DMNSubmarineQuarkus.createGenericDMNRuntime();
@@ -36,9 +43,13 @@ public class PaymentDateDMNEndpoint {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Map<String, Object> dmn(Map<String, Object> dmnContext) {
-        DMNResult evaluate = DMNSubmarineQuarkus.evaluate(dmnRuntime, "paymentDate", dmnContext);
-        return evaluate.getDmnContext();
+    @ApiOperation("Calculates payment date for given employee")
+    public Payroll calculatePaymentDate(@ApiParam(value = "data model representing employee to be used") Payroll payrollInput) {
+        DMNResult evaluate = DMNSubmarineQuarkus.evaluate(dmnRuntime, "paymentDate", Collections.singletonMap("employee", payrollInput.getEmployee()));
+        Payroll payroll = new Payroll();
+        
+        payroll.setPaymentDate((String) evaluate.getDmnContext().get("paymentDate"));
+        return payroll;
     }
 
 }

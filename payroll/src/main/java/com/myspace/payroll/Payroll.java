@@ -8,39 +8,49 @@ public class Payroll implements java.io.Serializable {
 
     static final long serialVersionUID = 1L;
 
-	private java.lang.Integer vacationDays;
-	private java.lang.Double taxRate;
-	private java.util.Date paymentDate;
+	private java.math.BigDecimal vacationDays;
+	private java.math.BigDecimal taxRate;
+	private String paymentDate;
+	
+	private com.myspace.payroll.Employee employee;
+
+    public com.myspace.payroll.Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(com.myspace.payroll.Employee employee) {
+        this.employee = employee;
+    }
 
 	public Payroll() {
 	}
 
-	public java.lang.Integer getVacationDays() {
+	public java.math.BigDecimal getVacationDays() {
 		return this.vacationDays;
 	}
 
-	public void setVacationDays(java.lang.Integer vacationDays) {
+	public void setVacationDays(java.math.BigDecimal vacationDays) {
 		this.vacationDays = vacationDays;
 	}
 
-	public java.lang.Double getTaxRate() {
+	public java.math.BigDecimal getTaxRate() {
 		return this.taxRate;
 	}
 
-	public void setTaxRate(java.lang.Double taxRate) {
+	public void setTaxRate(java.math.BigDecimal taxRate) {
 		this.taxRate = taxRate;
 	}
 
-	public java.util.Date getPaymentDate() {
+	public String getPaymentDate() {
 		return this.paymentDate;
 	}
 
-	public void setPaymentDate(java.util.Date paymentDate) {
+	public void setPaymentDate(String paymentDate) {
 		this.paymentDate = paymentDate;
 	}
 
-	public Payroll(java.lang.Integer vacationDays, java.lang.Double taxRate,
-			java.util.Date paymentDate) {
+	public Payroll(java.math.BigDecimal vacationDays, java.math.BigDecimal taxRate,
+	               String paymentDate) {
 		this.vacationDays = vacationDays;
 		this.taxRate = taxRate;
 		this.paymentDate = paymentDate;

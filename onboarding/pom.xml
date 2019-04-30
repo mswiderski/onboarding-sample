@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.myspace</groupId>
   <artifactId>onboarding</artifactId>
@@ -9,7 +11,7 @@
   <name>onboarding</name>
   <description>Onboarding function and service orchestration</description>
   <properties>
-    <quarkus.version>0.13.0</quarkus.version>
+    <quarkus.version>0.13.1</quarkus.version>
     <submarine.version>8.0.0-SNAPSHOT</submarine.version>
     <swagger.version>1.5.21</swagger.version>
 
@@ -17,6 +19,23 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+
+  <repositories>
+    <repository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Repository Group</name>
+      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <dependencyManagement>
     <dependencies>
@@ -56,7 +75,7 @@
       <artifactId>drools-canonical-model</artifactId>
       <version>${submarine.version}</version>
     </dependency>
-     <dependency>
+    <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-model-compiler</artifactId>
       <version>${submarine.version}</version>
@@ -66,13 +85,13 @@
       <artifactId>jbpm-flow</artifactId>
       <version>${submarine.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>monitoring-prometheus-addon</artifactId>
       <version>${submarine.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>io.swagger</groupId>
       <artifactId>swagger-annotations</artifactId>
@@ -157,7 +176,7 @@
             <version>${submarine.version}</version>
           </dependency>
         </dependencies>
-        </plugin>        
+      </plugin>
     </plugins>
   </build>
   <profiles>

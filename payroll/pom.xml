@@ -11,7 +11,7 @@
   <name>payroll</name>
   <description>Payroll related rules and processes for onboarding</description>
   <properties>
-    <quarkus.version>0.13.0</quarkus.version>
+    <quarkus.version>0.13.1</quarkus.version>
     <submarine.version>8.0.0-SNAPSHOT</submarine.version>
     <swagger.version>1.5.21</swagger.version>
 
@@ -24,7 +24,7 @@
     <repository>
       <id>jboss-public-repository-group</id>
       <name>JBoss Public Repository Group</name>
-      <url>https://origin-repository.jboss.org/nexus/content/groups/public/</url>
+      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
       <layout>default</layout>
       <releases>
         <enabled>true</enabled>
