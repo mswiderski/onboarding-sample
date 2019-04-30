@@ -28,17 +28,17 @@ public class PaymentDateTest {
 
     @Test
     public void testEvaluatePaymentDateUS() {
-        evaluateForCountry("US", "2019-04-15T23:59:00Z");
+        evaluateForCountry("US", "2019-05-15T23:59:00Z");
     }
 
     @Test
     public void testEvaluatePaymentDateUK() {
-        evaluateForCountry("UK", "2019-04-10T23:59:00Z");
+        evaluateForCountry("UK", "2019-05-10T23:59:00Z");
     }
 
     @Test
     public void testEvaluatePaymentDateDefault() {
-        evaluateForCountry("aoc", "2019-04-01T23:59:00Z");
+        evaluateForCountry("aoc", "2019-05-01T23:59:00Z");
     }
 
     private void evaluateForCountry(String country, String result) {

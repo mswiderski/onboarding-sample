@@ -33,12 +33,12 @@
         </semantic:itemComponent>
     </semantic:itemDefinition>
     <semantic:decisionService id="_a412928f-61f7-428c-a0bb-150fda386899_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true">
-        <semantic:variable name="Whole Model Decision Service" id="_2fbe4ca9-0879-438c-a1cc-0d3200514a06" typeRef="Any"/>
+        <semantic:variable name="Whole Model Decision Service" id="_bd2cee0b-929c-421f-bd94-c905434e1afd" typeRef="Any"/>
         <semantic:outputDecision href="#_eac3ef9e-37de-4dca-8802-ee08ded9e268"/>
         <semantic:inputData href="#_89e85ee4-f052-4977-bee5-a3b81a600c6c"/>
     </semantic:decisionService>
     <semantic:decisionService id="_cf751e40-9c00-4b28-9d6a-0c72e035d462_DS" name="Diagram Page 1" triso:dynamicDecisionService="true">
-        <semantic:variable name="Diagram Page 1" id="_728a760b-b80f-4527-916b-ea4f8e39ef4d" typeRef="Any"/>
+        <semantic:variable name="Diagram Page 1" id="_1df05825-c007-46a7-af19-baaeb2def95d" typeRef="Any"/>
         <semantic:outputDecision href="#_eac3ef9e-37de-4dca-8802-ee08ded9e268"/>
         <semantic:inputData href="#_89e85ee4-f052-4977-bee5-a3b81a600c6c"/>
     </semantic:decisionService>
@@ -55,8 +55,8 @@
         </semantic:knowledgeRequirement>
         <semantic:context id="_f7ee5c98-ea6d-48c4-9a0d-76794ca0ce1d" typeRef="dateTime" triso:expressionId="_0f910044-213c-4682-8c0f-e45a98cd1d58">
             <semantic:contextEntry id="_7d8e26b0-8377-4279-a4e8-3b14372a7c07">
-                <semantic:variable name="date" id="_a3891c94-8839-4219-aa66-69cb07535fc6" typeRef="date"/>
-                <semantic:decisionTable id="_c7a83474-a6bc-49c6-8296-4428c9285f4d" hitPolicy="FIRST" outputLabel="date">
+                <semantic:variable name="date of month" id="_a3891c94-8839-4219-aa66-69cb07535fc6" typeRef="Any"/>
+                <semantic:decisionTable id="_c7a83474-a6bc-49c6-8296-4428c9285f4d" hitPolicy="FIRST" outputLabel="date of month">
                     <semantic:input id="_22cc8d8b-037c-4d0b-a00d-9e0943b1278a">
                         <semantic:inputExpression typeRef="string">
                             <semantic:text>employee.address.country</semantic:text>
@@ -69,7 +69,7 @@
                             <semantic:text>"US"</semantic:text>
                         </semantic:inputEntry>
                         <semantic:outputEntry id="_f42f5ec5-0f78-4a82-b769-9027ef1545f8" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" triso:unparsed="true">
-                            <semantic:text>date(today().year, today().month, 15)</semantic:text>
+                            <semantic:text>"15"</semantic:text>
                         </semantic:outputEntry>
                         <semantic:annotationEntry>
                             <semantic:text></semantic:text>
@@ -80,7 +80,7 @@
                             <semantic:text>"UK"</semantic:text>
                         </semantic:inputEntry>
                         <semantic:outputEntry id="_311804d4-3ecb-4a9d-9674-5e96a600058f" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" triso:unparsed="true">
-                            <semantic:text>date(today().year, today().month, 10)</semantic:text>
+                            <semantic:text>"10"</semantic:text>
                         </semantic:outputEntry>
                         <semantic:annotationEntry>
                             <semantic:text></semantic:text>
@@ -91,7 +91,7 @@
                             <semantic:text>-</semantic:text>
                         </semantic:inputEntry>
                         <semantic:outputEntry id="_25ff29aa-3291-4fb1-a45c-3d52942a5b2a" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" triso:unparsed="true">
-                            <semantic:text>date(today().year, today().month, 1)</semantic:text>
+                            <semantic:text>"01"</semantic:text>
                         </semantic:outputEntry>
                         <semantic:annotationEntry>
                             <semantic:text></semantic:text>
@@ -101,16 +101,17 @@
             </semantic:contextEntry>
             <semantic:contextEntry id="_7072db63-3b5f-458e-b1cd-e4fbb9a20ec3">
                 <semantic:literalExpression id="_d59e669a-1bb6-4876-9835-c0077fa846c5">
-                    <semantic:text>date and time(date, time("23:59:00z"))</semantic:text>
+                    <semantic:text>on the(date of month)</semantic:text>
                 </semantic:literalExpression>
             </semantic:contextEntry>
         </semantic:context>
     </semantic:decision>
-    <semantic:businessKnowledgeModel id="_bfc1e622-768b-43af-8f3e-7a9242b3b1b9" name="today">
-        <semantic:variable name="today" id="_8de1169a-5442-4cc5-a769-b6aacd4e8d0c" typeRef="date"/>
+    <semantic:businessKnowledgeModel id="_bfc1e622-768b-43af-8f3e-7a9242b3b1b9" name="on the">
+        <semantic:variable name="on the" id="_8de1169a-5442-4cc5-a769-b6aacd4e8d0c" typeRef="date"/>
         <semantic:encapsulatedLogic id="_7da15487-1478-4f26-a12e-35cfd3f5a9db" kind="FEEL" typeRef="date" triso:expressionId="_aaf6abb4-cc7b-4d6d-b636-688683e2bea3">
+            <semantic:formalParameter name="x" typeRef="Any" id="_183a1efa-5ed0-49fe-857c-935e773e9ca6"/>
             <semantic:literalExpression id="_597d8d7f-651d-4089-8b58-23df82bae995">
-                <semantic:text>date(now())</semantic:text>
+                <semantic:text>"2019-05-"+x+"T23:59:00Z"</semantic:text>
             </semantic:literalExpression>
         </semantic:encapsulatedLogic>
     </semantic:businessKnowledgeModel>
