@@ -8,7 +8,7 @@ when
     $val : EmployeeValidationModel($emp.personalId == employee.personalId)
 then
     modify($val) { 
-    	setStatus( "exists" );
+    	setStatus( "exists" ),
     	setMessage( "Employee " + $val.getEmployee().getFirstName() + " " + $val.getEmployee().getLastName() + " is already registered" );
     };
     delete($emp);
