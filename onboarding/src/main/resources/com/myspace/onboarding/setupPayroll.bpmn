@@ -20,7 +20,7 @@
   <bpmn2:itemDefinition id="__83EB46B5-7186-4575-8AA0-1A8FCCE1D163_NamespaceInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__83EB46B5-7186-4575-8AA0-1A8FCCE1D163_employeeInputXItem" structureRef="com.myspace.onboarding.Employee"/>
   <bpmn2:itemDefinition id="__83EB46B5-7186-4575-8AA0-1A8FCCE1D163_paymentDateOutputXItem" structureRef="java.util.Date"/>
-  <bpmn2:process id="onboarding.setupPayroll" drools:packageName="com.myspace.onboarding" drools:version="1.0" drools:adHoc="false" name="setupPayroll" isExecutable="true">
+  <bpmn2:process id="onboarding.setupPayroll" drools:packageName="com.myspace.onboarding" drools:version="1.0" drools:adHoc="false" name="setupPayroll" isExecutable="true" processType="Private">
     <bpmn2:documentation id="_fWl5YWdbEemTPrcubws9TA"><![CDATA[Calculates payroll related data such as vacation days, tax rate, payment date, etc]]></bpmn2:documentation>
     <bpmn2:property id="employee" itemSubjectRef="_employeeItem" name="employee"/>
     <bpmn2:property id="payroll" itemSubjectRef="_payrollItem" name="payroll"/>
